@@ -31,6 +31,7 @@ ruamel.yaml == 0.19.*
 tzlocal == 5.2
 requests == 2.33.*
 types-requests == 2.32.*
+pytapo == 3.4.26
 norfair == 2.3.*
 setproctitle == 1.3.*
 ws4py == 0.5.*

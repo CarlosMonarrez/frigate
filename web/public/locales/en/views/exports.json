@@ -1,5 +1,41 @@
 {
   "documentTitle": "Export - Frigate",
+  "tapo": {
+    "open": "Tapo SD card",
+    "title": "Tapo SD card recordings",
+    "description": "Find and download clips stored on your Tapo cameras' SD cards. Keep this dialog open to track download progress.",
+    "cameras": "Cameras",
+    "cameraLoadError": "Unable to load configured cameras.",
+    "noCameras": "No configured cameras with private RTSP IP addresses were found.",
+    "date": "Recording date",
+    "username": "Camera account username",
+    "cameraPassword": "Camera account password",
+    "cloudPassword": "TP-Link cloud account password",
+    "credentialsNote": "Credentials are sent to Frigate for these requests and are not saved. Tapo uses the cloud password to retrieve SD-card recordings locally.",
+    "storageCopyNote": "Frigate also keeps each MP4 under its configured exports directory.",
+    "findRecordings": "Find recordings",
+    "listing": "Searching cameras...",
+    "noRecordings": "Choose cameras and a date, enter your Tapo credentials, then find recordings.",
+    "recordingCount_one": "{{count}} recording found",
+    "recordingCount_other": "{{count}} recordings found",
+    "selectAll": "Select all",
+    "selectNone": "Select none",
+    "downloadSelected_one": "Download {{count}} clip",
+    "downloadSelected_other": "Download {{count}} clips",
+    "startingDownload": "Starting download...",
+    "jobProgress": "Downloaded {{completed}} of {{total}} clips",
+    "jobComplete": "Your ZIP archive is ready.",
+    "downloadZip": "Save ZIP file",
+    "validation": {
+      "dateAndCamera": "Select at least one camera and a date."
+    },
+    "toast": {
+      "listError": "Could not list Tapo recordings: {{errorMessage}}",
+      "downloadError": "Could not download Tapo recordings: {{errorMessage}}",
+      "downloadStarted": "The camera recordings are downloading in the background.",
+      "unknownError": "Unknown error"
+    }
+  },
   "search": "Search",
   "noExports": "No exports found",
   "headings": {

@@ -70,6 +70,7 @@ import useSWR from "swr";
 import ExportActionGroup from "@/components/filter/ExportActionGroup";
 import ExportFilterGroup from "@/components/filter/ExportFilterGroup";
 import { useIsAdmin } from "@/hooks/use-is-admin";
+import TapoSdCardDialog from "@/components/overlay/TapoSdCardDialog";
 
 // always parse these as string arrays
 const EXPORT_FILTER_ARRAY_KEYS = ["cameras"];
@@ -77,6 +78,7 @@ const EXPORT_FILTER_ARRAY_KEYS = ["cameras"];
 function Exports() {
   const { t } = useTranslation(["views/exports"]);
   const isAdmin = useIsAdmin();
+  const [isTapoDialogOpen, setIsTapoDialogOpen] = useState(false);
 
   useEffect(() => {
     document.title = t("documentTitle");
@@ -571,6 +573,10 @@ function Exports() {
     <div className="flex size-full flex-col gap-2 overflow-hidden px-1 pt-2 md:p-2">
       <Toaster closeButton={true} />
 
+      {isAdmin && isTapoDialogOpen && (
+        <TapoSdCardDialog onClose={() => setIsTapoDialogOpen(false)} />
+      )}
+
       <CaseEditorDialog
         caseDialog={caseDialog}
         onClose={() => setCaseDialog(undefined)}
@@ -757,15 +763,26 @@ function Exports() {
                   onUpdateFilter={setExportFilter}
                 />
                 {isAdmin && (
-                  <Button
-                    className="flex items-center gap-2.5 rounded-lg"
-                    variant="default"
-                    size="sm"
-                    onClick={() => setCaseDialog({ mode: "create" })}
-                  >
-                    <LuFolderPlus className="text-secondary-foreground" />
-                    <div className="text-primary">{t("toolbar.newCase")}</div>
-                  </Button>
+                  <>
+                    <Button
+                      className="flex items-center gap-2.5 rounded-lg"
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => setIsTapoDialogOpen(true)}
+                    >
+                      <LuDownload className="text-secondary-foreground" />
+                      <div className="text-primary">{t("tapo.open")}</div>
+                    </Button>
+                    <Button
+                      className="flex items-center gap-2.5 rounded-lg"
+                      variant="default"
+                      size="sm"
+                      onClick={() => setCaseDialog({ mode: "create" })}
+                    >
+                      <LuFolderPlus className="text-secondary-foreground" />
+                      <div className="text-primary">{t("toolbar.newCase")}</div>
+                    </Button>
+                  </>
                 )}
               </div>
             )}

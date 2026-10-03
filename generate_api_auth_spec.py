@@ -64,6 +64,7 @@ from frigate.api import (
     preview,
     record,
     review,
+    tapo,
 )
 from frigate.api.auth import require_admin_by_default
 
@@ -154,6 +155,7 @@ def build_app() -> FastAPI:
         preview.router,
         notification.router,
         export.router,
+        tapo.router,
         hardware.router,
         notices.router,
         event.router,

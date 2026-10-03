@@ -29,6 +29,7 @@ from frigate.api import (
     preview,
     record,
     review,
+    tapo,
 )
 from frigate.api.auth import get_jwt_secret, limiter, require_admin_by_default
 from frigate.comms.dispatcher import Dispatcher
@@ -149,6 +150,7 @@ def create_fastapi_app(
     app.include_router(preview.router)
     app.include_router(notification.router)
     app.include_router(export.router)
+    app.include_router(tapo.router)
     app.include_router(hardware.router)
     app.include_router(notices.router)
     app.include_router(event.router)
